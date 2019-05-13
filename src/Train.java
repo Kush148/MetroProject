@@ -12,7 +12,6 @@ public class Train {
         stationNum = 0;
         direction = 1;
         passTotal = 0;
-
     }
 
     public Train(int metroID) {
