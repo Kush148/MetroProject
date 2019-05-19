@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
 public class LetsGo {
+    static int remainingPass = 0;
     public static void main(String[] args) {
         int noOfMetroStations;
         int retries = 0, remainingCapacity = 300;
-        int passOnTrain = 0, passLeftTrain, newPass, remainingPass = 0;
+        int passOnTrain = 0, passLeftTrain, newPass;
+
 
         System.out.println("Welcome To LetsGo Transport");
 
@@ -31,11 +33,13 @@ public class LetsGo {
                     System.out.println("New passenger waiting to board : " + newPass);
                     System.out.println("Passengers got on : " + newPass);
                     passOnTrain = newPass;
+                    remainingCapacity -= newPass;
+                    System.out.println("check remaining capacity : " + remainingCapacity);
                 } else {
                     System.out.println("check pass on train : " + passOnTrain);
                     passLeftTrain = (int) (Math.random() * ((passOnTrain - 1) + 1)) + 1;
                     System.out.println("check left pass : " + passLeftTrain);
-                    remainingCapacity -= (passOnTrain + passLeftTrain);
+                    remainingCapacity += passLeftTrain;
                     newPass = (int) (Math.random() * ((300 - 1) + 1)) + 1; //(Math.random() * ((max - min) + 1)) + min
                     System.out.println("check new pass 2 :" + newPass);
                     System.out.println("check remaining capacity" + newPass);
